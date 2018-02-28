@@ -10,11 +10,11 @@ public class LoginPage {
 
     // Описываем обекты
     private By logInButton = By.xpath("//button[@id='id_submit_btn']");
-    private By signUpButton = By.xpath("//button[text()='Registrierung']");
+    private By signUpButton = By.xpath("//button[@class='button button_white button_sm']");
     private By resetPasswordLink = By.xpath("//a[@class='register__reset-link']");
     private By emailField = By.xpath("//input[@id='id_username']");
     private By passwordField = By.xpath("//input[@id='id_password']");
-    private By pageName = By.xpath("//div[@class='register__head']/h1[@class='register__title']");
+    private By pageName = By.xpath("//h1[@class='register__title']");
 
     //Оптсываем методы работы с елементами
 

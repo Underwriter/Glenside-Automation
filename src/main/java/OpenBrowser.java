@@ -2,20 +2,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class OpenBrowser {
+class OpenBrowser {
 
-    protected WebDriver driver;
+   static WebDriver driver;
 
-    @Parameters("browser")
-    @BeforeTest
-    protected WebDriver getDriver(String browser) {
-        switch (browser) {
+    protected static WebDriver getDriver(String browser) {
+         switch (browser) {
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", "C:\\Glenside\\Glenside-Automation\\Drivers\\chromedriver.exe");
                 driver = new ChromeDriver();
@@ -27,14 +23,12 @@ public class OpenBrowser {
             case "edge":
                 System.setProperty("webdriver.edge.driver", "C:\\Glenside\\Glenside-Automation\\Drivers\\MicrosoftWebDriver.exe");
                 driver = new EdgeDriver();
+            case "safari":
+                System.setProperty("webdriver.safari.driver", "C:\\Glenside\\Glenside-Automation\\Drivers\\MicrosoftWebDriver.exe");
+                driver = new SafariDriver();
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         return driver;
-    }
-    @AfterTest
-     protected void tearDown() {
-        if (driver != null)
-            driver.quit();
     }
 }

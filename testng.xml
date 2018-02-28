@@ -3,7 +3,7 @@
  
 <suite name="Login">
     <parameter name="browser" value="chrome"/>
-    <parameter name="baseURL" value="http:\\192.168.1.107:8000"/>
+    <parameter name="baseURL" value="https://glenside-dev.andersenlab.com/"/>
 
     <test name="Signin page">
         <classes>

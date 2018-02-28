@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Maven: org.testng:testng:6.11">
+    <ANNOTATIONS>
+      <root url="file://$PROJECT_DIR$" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.11/testng-6.11.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.11/testng-6.11-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.11/testng-6.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -7,6 +7,13 @@
     <groupId>Glenside</groupId>
     <artifactId>Glenside-Automation</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+    </dependencies>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->

@@ -27,7 +27,6 @@ public class OpenBrowser {
             case "edge":
                 System.setProperty("webdriver.edge.driver", "C:\\Glenside\\Glenside-Automation\\Drivers\\MicrosoftWebDriver.exe");
                 driver = new EdgeDriver();
-                break;
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

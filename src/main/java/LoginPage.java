@@ -15,6 +15,8 @@ public class LoginPage {
     private By emailField = By.xpath("//input[@id='id_username']");
     private By passwordField = By.xpath("//input[@id='id_password']");
     private By pageName = By.xpath("//h1[@class='register__title']");
+    private By errorMSG = By.xpath("//div[@class='register__popup popup_active popup_attention register__popup-red popup-fix-cover-others']");
+    public By blockedMSG = By.xpath("//span[@id='login_attempts_exceeded']");
 
     //Оптсываем методы работы с елементами
 
@@ -46,6 +48,18 @@ public class LoginPage {
     public String getPageName() {
         return driver.findElement(pageName).getText();
     }
+
+    public String getErrorMSG() {
+        return driver.findElement(errorMSG).getText();
+    }
+
+    public String getBlockedMSG() {
+        return driver.findElement(blockedMSG).getText();
+    }
+    public boolean BlockedMSG() {
+        return driver.findElement(blockedMSG).isDisplayed();
+    }
+
 
     public ScoringDetailsPage login(String email, String password) {
         this.typeEmail(email);

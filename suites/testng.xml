@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Signin page">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="baseURL" value="https://glenside-dev.andersenlab.com"/>
+    <parameter name="email" value="company@test.com"/>
+    <parameter name="password" value="123456"/>
+    <parameter name="invalid_password" value="123496"/>
+
+    <test name="Autorization suit">
+        <classes>
+               <class name="SignInPage"/>
+        </classes>
+    </test>
+</suite>

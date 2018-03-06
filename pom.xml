@@ -10,6 +10,14 @@
 
     <properties>
         <aspectj.version>1.8.10</aspectj.version>
+        <compiler.plugin.version>3.6.0</compiler.plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <surefire.plugin.version>2.20</surefire.plugin.version>
+        <allure.version>2.0-BETA8</allure.version>
+        <aspectj.version>1.8.10</aspectj.version>
+        <allure.results.directory>C:\Users\Glomozda\.jenkins\workspace\Allure report Glenside\target\allure-results</allure.results.directory>
+        <allure.link.tms.pattern>https://vmmreg32.testrail.net/index.php?/cases/view/{}</allure.link.tms.pattern>
     </properties>
 
     <dependencies>
@@ -65,6 +73,11 @@
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>2.6.0</version>
+        </dependency>
 
     </dependencies>
 
@@ -74,12 +87,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>${compiler.plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
+
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -104,13 +119,45 @@
             </plugin>
 
             <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.7</version>
+                <configuration>
+                <properties>
+                    <reportVersion>2.0-BETA8</reportVersion>
+                </properties>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20</version>
+                <version>${surefire.plugin.version}</version>
                 <configuration>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                    </properties>
+                    <systemProperties>
+                        <property>
+                            <name>allure.tests.management.pattern</name>
+                            <value>${allure.link.tms.pattern}</value>
+                        </property>
+                            <property>
+                                <name>allure.results.directory</name>
+                                <value>${allure.results.directory}</value>
+                            </property>
+                   </systemProperties>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <suiteXmlFiles>
+                    <xmlFile>suites/testng.xml</xmlFile>
+                </suiteXmlFiles>
+                    <!-- ADD working directory to get TestNG know we to find suite files -->
+                    <workingDirectory>./</workingDirectory>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -121,18 +168,33 @@
                 </dependencies>
             </plugin>
 
+            <!--<plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        &lt;!&ndash; here the phase you need &ndash;&gt;
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${allure.results.directory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/test/resources</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+
         </plugins>
     </build>
 
-    <reporting>
-        <excludeDefaults>true</excludeDefaults>
-        <plugins>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.8</version>
-            </plugin>
-        </plugins>
-    </reporting>
+
 
 </project>

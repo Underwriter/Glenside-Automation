@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -20,31 +21,34 @@ public class LoginPage {
 
     //Оптсываем методы работы с елементами
 
+    @Step("Click on [Login] button")
     public ScoringDetailsPage clickLogInButton () {
         driver.findElement(logInButton).click();
         return new ScoringDetailsPage(driver);
     }
-
+    @Step("Click on 'Reset password' link")
     public ResetPasswordPage clickResetPasswordLink () {
         driver.findElement(resetPasswordLink).click();
         return new ResetPasswordPage(driver);
     }
 
+    @Step("Click on [Sign up] button")
     public SignUpPage clickSignUpButton () {
         driver.findElement(signUpButton).click();
         return new SignUpPage(driver);
     }
-
+    @Step("Enter email")
     public LoginPage typeEmail(String email) {
         driver.findElement(emailField).sendKeys(email);
         return this;
     }
-
+    @Step("Enter password")
     public LoginPage typePassword(String password) {
         driver.findElement(passwordField).sendKeys(password);
         return this;
     }
 
+    @Step("Verify the login page ")
     public String getPageName() {
         return driver.findElement(pageName).getText();
     }
@@ -53,14 +57,17 @@ public class LoginPage {
         return driver.findElement(errorMSG).getText();
     }
 
+    @Step("Verify the text of message")
     public String getBlockedMSG() {
         return driver.findElement(blockedMSG).getText();
     }
+
+    @Step("Warning message is displayed")
     public boolean BlockedMSG() {
         return driver.findElement(blockedMSG).isDisplayed();
     }
 
-
+    @Step("Login with email: {0} and password: {1}")
     public ScoringDetailsPage login(String email, String password) {
         this.typeEmail(email);
         this.typePassword(password);

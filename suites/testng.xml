@@ -10,7 +10,7 @@
 
     <test name="Autorization suit">
         <classes>
-               <class name="SignInPage"/>
+            <class name="Signin.Page.SignInPage"></class>
         </classes>
     </test>
 </suite>

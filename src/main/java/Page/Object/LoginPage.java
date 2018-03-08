@@ -34,11 +34,11 @@ public class LoginPage {
         return new ResetPasswordPage(driver);
     }
 
-    @Step("Click on [Sign up] button")
+    /*@Step("Click on [Sign up] button")
     public SignUpPage clickSignUpButton () {
         driver.findElement(signUpButton).click();
         return new SignUpPage(driver);
-    }
+    }*/
     @Step("Enter email")
     public LoginPage typeEmail(String email) {
         driver.findElement(emailField).sendKeys(email);

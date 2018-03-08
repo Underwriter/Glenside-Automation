@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <surefire.plugin.version>2.20</surefire.plugin.version>
-        <allure.version>2.0-BETA8</allure.version>
+        <allure.version>2.6.0</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
         <allure.results.directory>C:\Users\Glomozda\.jenkins\workspace\Allure report Glenside\target\allure-results</allure.results.directory>
         <allure.link.tms.pattern>https://vmmreg32.testrail.net/index.php?/cases/view/{}</allure.link.tms.pattern>
@@ -121,10 +121,10 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.7</version>
+                <version>2.9</version>
                 <configuration>
                 <properties>
-                    <reportVersion>2.0-BETA8</reportVersion>
+                    <reportVersion>2.6.0</reportVersion>
                 </properties>
                 </configuration>
             </plugin>

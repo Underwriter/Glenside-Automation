@@ -1,3 +1,9 @@
+package SignInPage;
+
+import Page.Object.LoginPage;
+import Page.Object.OpenBrowser;
+import Page.Object.ScoringDetailsPage;
+import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import io.qameta.allure.TmsLink;
@@ -7,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-@Feature("Login Test Suit")
+@Epic("Signin Page")
 public class SignInPage extends OpenBrowser {
 
     @Parameters({"browser", "baseURL"})
@@ -15,7 +21,7 @@ public class SignInPage extends OpenBrowser {
     @Step("Open browser and go to login page")
     public void Precondition (String browser, String baseURL) throws Exception {
        OpenBrowser.getDriver(browser);
-        driver.get(baseURL + "/login");
+       driver.get(baseURL + "login");
     }
 
     @AfterMethod
@@ -24,11 +30,12 @@ public class SignInPage extends OpenBrowser {
         if (driver != null)
             driver.quit();
     }
+    @Feature("Login")
     @Test (groups = {"smoke", "regression"}, description = "Verification of the sign-in", priority = 0)
     @TmsLink("C40389")
     @Parameters({"email", "password"})
     public void C40389 (String email, String password) throws Exception {
-        LoginPage loginPage = new LoginPage(driver);
+            LoginPage loginPage = new LoginPage(driver);
             String getPageName = loginPage.getPageName();
             Assert.assertTrue(getPageName.equals("LOG-IN"));
             loginPage.typeEmail(email);
@@ -38,7 +45,7 @@ public class SignInPage extends OpenBrowser {
             String getMenuName = scoringDetailsPage.getMenuName();
             Assert.assertEquals(getMenuName, "Ihre Bonität");
     }
-
+    @Feature("Security")
     @TmsLink ("C39318")
     @Parameters({"email", "invalid_password"})
     @Test (groups = {"smoke", "regression"}, description = "Verification of warning message appears after failing to sign-in 10 times per minute", priority = 1)

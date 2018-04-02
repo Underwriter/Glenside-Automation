@@ -31,7 +31,7 @@ public class SignInPage extends OpenBrowser {
             driver.quit();
     }
     @Feature("Login")
-    @Test (groups = {"smoke", "regression"}, description = "Verification of the sign-in", priority = 0)
+    @Test (groups = {"smoke", "regression"}, description = "Verification 2 of the sign-in", priority = 0)
     @TmsLink("C40389")
     @Parameters({"email", "password"})
     public void C40389 (String email, String password) throws Exception {

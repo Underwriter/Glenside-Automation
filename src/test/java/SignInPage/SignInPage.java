@@ -48,7 +48,7 @@ public class SignInPage extends OpenBrowser {
     @Feature("Security")
     @TmsLink ("C39318")
     @Parameters({"email", "invalid_password"})
-    @Test (groups = {"smoke", "regression"}, description = "Verification of warning message appears after failing to sign-in 10 times per minute", priority = 1)
+    @Test (groups = {"smoke", "regression"}, description = "Verification of warning message appears after failing to signin 10 times per minute", priority = 1)
     public void C39318 (String email, String invalid_password) throws Exception {
         LoginPage loginPage = new LoginPage(driver);
         String getPageName = loginPage.getPageName();

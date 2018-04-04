@@ -24,9 +24,6 @@ public class ResetPasswordPage {
     }
 */
 
-   /* private String getPageName() {
-        return driver.findElement(pageName).getText();
-    }
-*/
+   
 }
 

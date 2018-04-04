@@ -139,7 +139,6 @@
                     <suiteXmlFiles>
                     <xmlFile>suites/testng.xml</xmlFile>
                 </suiteXmlFiles>
-                    <!-- ADD working directory to get TestNG know we to find suite files -->
                     <workingDirectory>./</workingDirectory>
                 </configuration>
                 <dependencies>
@@ -152,7 +151,4 @@
             </plugin>
         </plugins>
     </build>
-
-
-
 </project>

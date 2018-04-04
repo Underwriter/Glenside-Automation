@@ -16,7 +16,7 @@
         <surefire.plugin.version>2.20</surefire.plugin.version>
         <allure.version>2.6.0</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
-        <allure.results.directory>${project.build.directory}/target/allure-results/</allure.results.directory>
+        <allure.results.directory>/target/allure-results/</allure.results.directory>
         <allure.link.tms.pattern>https://vmmreg32.testrail.net/index.php?/cases/view/{}</allure.link.tms.pattern>
     </properties>
 
@@ -116,7 +116,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.plugin.version}</version>
                 <configuration>
-                    <testFailureIgnore>true</testFailureIgnore>
                     <properties>
                         <property>
                             <name>usedefaultlisteners</name>

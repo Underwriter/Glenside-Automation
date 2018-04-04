@@ -59,7 +59,7 @@ public class SignInPage extends OpenBrowser {
             loginPage.clickLogInButton();
         }
         Assert.assertTrue(loginPage.BlockedMSG());
-        Assert.assertEquals(loginPage.getBlockedMSG(),"Um zu verhindern, dass sich Unbefugte Zugang zu Ihren Daten verschaffen, haben wir die Anzahl der Login-Versuche eingeschränkt. Bitte versuchen sie es nochmal in 62 Sekunden.");
+        Assert.assertEquals(loginPage.getBlockedMSG(),"Um zu verhindern, dass sich Unbefugte Zugang zu Ihren Daten verschaffen, haben wir die Anzahl der Login-Versuche eingeschränkt. Bitte versuchen sie es nochmal in 61 Sekunden.");
       //  System.out.print(loginPage.getBlockedMSG());
     }
 
